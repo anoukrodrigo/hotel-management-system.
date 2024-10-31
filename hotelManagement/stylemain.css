@@ -1,0 +1,655 @@
+html, body {
+    height: 100%; /* Ensure the body takes the full height */
+    margin: 0;    /* Remove default margins */
+}
+
+.floataway {
+    background: saddlebrown; /* Brown background */
+    width: 100%;            /* Full width */
+    height: 100%;           /* Full height */
+    position: absolute;     /* Positioning to cover entire page */
+    top: 0;                 /* Align to top */
+    left: 0;                /* Align to left */
+    z-index: 1000;           /* Ensure it's behind other content */
+    animation: liftUp 20s forwards; /* Lift up over 12 seconds */
+    animation-delay: 10s; /* Start immediately */
+}
+
+@keyframes liftUp {
+   /* 0% {
+        transform: translateY(0); 
+        opacity: 1;               
+    }*/
+    70% {
+        transform: translateY(-99.9%); /* Move up quickly */
+        opacity: 0.2;                /* Remain fully visible */
+    }
+    100% {
+        transform: translateY(-100%); /* Move up off the screen */
+        opacity: 0;                /* Gradually disappear */
+    }
+}
+
+
+.floataway .floatInner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 18%;
+    gap: 3.2rem; 
+    color: black;
+    font-size: 30px;
+}
+
+.logo03 {
+    width: 200px; /* Set the width to 300px */
+    height: 200px;
+    opacity: 0; /* Initially hidden */
+    transform: translateY(20px); /* Move down slightly */
+    animation: logoFadeInOut 10s forwards;  /*Animation for the logo */
+    animation-delay: 0s; /* Start immediately */
+}
+
+.star {
+    opacity: 0; /* Initially hidden */
+    width: 30px; /* Set the width to 300px */
+    height: 30px;
+    transform: translateY(20px); /* Move down slightly */
+    animation: starFadeInOut 10.3s forwards; /* Animation for stars */
+    animation-delay: 0.5s; /* Start after logo */
+}
+
+.year {
+    opacity: 0; /* Initially hidden */
+    color: white;
+    transform: translateY(20px); /* Move down slightly */
+    animation: textFadeInOut 10.3s forwards; /*Animation for the text */
+    animation-delay: 0.5s; /* Start after logo */
+}
+
+
+/* Keyframes for animations */
+@keyframes logoFadeInOut {
+    0% {
+        opacity: 0; /* Initially hidden */
+        transform: translateY(20px); /* Start from below */
+    }
+    25% {
+        opacity: 1; /* Fully visible */
+        transform: translateY(0); /* Move to original position */
+    }
+    75% {
+        opacity: 1; /* Stay fully visible */
+        transform: translateY(0); /* Stay at original position */
+    }
+    100% {
+        opacity: 0; /* Fully hidden */
+        transform: translateY(20px); /* Move down slightly */
+    }
+}
+
+@keyframes starFadeInOut {
+    0% {
+        opacity: 0; /* Initially hidden */
+        transform: translateY(20px); /* Start from below */
+    }
+    25% {
+        opacity: 1; /* Fully visible */
+        transform: translateY(0); /* Move to original position */
+    }
+    75% {
+        opacity: 1; /* Stay fully visible */
+        transform: translateY(0); /* Stay at original position */
+    }
+    100% {
+        opacity: 0; /* Fully hidden */
+        transform: translateY(20px); /* Move down slightly */
+    }
+}
+
+@keyframes textFadeInOut {
+    0% {
+        opacity: 0; /* Initially hidden */
+        transform: translateY(20px); /* Start from below */
+    }
+    25% {
+        opacity: 1; /* Fully visible */
+        transform: translateY(0); /* Move to original position */
+    }
+    75% {
+        opacity: 1; /* Stay fully visible */
+        transform: translateY(0); /* Stay at original position */
+    }
+    100% {
+        opacity: 0; /* Fully hidden */
+        transform: translateY(20px); /* Move down slightly */
+    }
+}
+
+.headMain {
+    height: 100%;
+    width: 100%;
+    opacity: 0;  /* Initially hidden */
+    transition: opacity 4s ease-in; /* Transition effect for opacity */
+    background-size: cover; /* Ensures the image covers the entire area */
+    background-position: center; /* Centers the image */
+}
+
+.headMain.hidden {
+    opacity: 1; /* Fully visible */
+}
+
+
+.headMain nav {
+    position: relative; /* Establishes a positioning context for the pseudo-element */
+    width: 100%; /* Full width */
+    overflow: hidden; /* Prevent overflow */
+    
+}
+
+.headMain nav::before {
+    content: ""; /* Necessary for the pseudo-element */
+    position: absolute; /* Positions it relative to the nav */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, .1);
+    -webkit-backdrop-filter: blur(50px);
+    backdrop-filter:blur(50px);
+    z-index: 10; /* Places it behind the content */
+    transition: background-image 10s ease-in-out; /* Optional: smooth transition for background change */
+}
+
+.headerTop,
+.headerBottom {
+    position: relative; /* Ensures they appear above the blurred background */
+    z-index: 100; /* Keep them above the blurred image */
+    padding: 20px; /* Optional: Adjust padding as needed */
+    color: white; /* Change text color for visibility */
+}
+
+
+.headerTop {
+    display: flex;
+    justify-content: space-between; /* Spreads the major sections (menuSet, year/logo/stars, booking) across the row */
+    align-items: center; /* Vertically centers the items */
+    width: 100%; /* Makes the container full width */
+    border-bottom: 0.6px solid white; 
+    z-index: 100;
+}
+.menuSet {
+    display: flex;
+    align-items: center;
+    margin-left: 82px;
+}
+
+.menuSym {
+    margin-right: 10px;
+    height: 28px;
+    width: 28px;
+}
+
+.menu01 {
+    font-size: 25px;
+    text-decoration: none; /* Removes the underline */
+    color: white; /* Inherits the color from the parent element, making it blend in */
+    cursor: pointer; /* Changes the cursor to default (text cursor) */
+}
+
+.year_logo {
+    display: flex;
+	align-items: center;
+    gap: 35px;
+	
+}
+
+.year02 {
+    margin-right: 10px; /* Adds spacing between the year and the logo */
+    letter-spacing: 1.5em; /* Adds space between individual letters */
+    font-size: 20px;
+}
+
+.logo02 {
+    margin-right: 10px;
+}
+
+.booking {
+     display: flex;
+	align-items: center;
+    margin-right: 70px;
+  
+}
+
+.bookingClass {
+    height: 28px;
+    width: 28px;
+    color: white;
+}
+
+.shoppingBag {
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.logo02 {
+    width: 200px; /* Set the width to 300px */
+    height: 200px;
+}
+
+.star02 {
+    width: 30px; /* Set the width to 300px */
+    height: 30px;
+    margin: 0 5px;
+}
+
+.headerBottom {
+    display: flex; /* Use flexbox to align items horizontally */
+    justify-content: space-between; /* Space between items */
+    align-items: center; /* Center items vertically */
+    padding: 10px 288px; /* Add some padding for better spacing */
+    margin: 0; /* Remove horizontal margin */
+    width: 100%; /* Ensure full width */
+    border-bottom: 0.6px solid white; /* Default border */
+    box-sizing: border-box; /* Include padding and border in width calculation */
+    z-index: 100;
+    position: relative; /* To position the expanding border */
+}
+
+.headerBottom h5 {
+    margin: 0 3px; /* Add horizontal spacing between the headers */
+    font-size: 19px; /* Optional: Set a consistent font size */
+    cursor: pointer; /* Change cursor to pointer */
+    transition: opacity 0.9s ease; /* Smooth transition for opacity */
+    
+}
+
+.headerBottom::after {
+    content: ""; /* Create an empty pseudo-element */
+    position: absolute; /* Position it absolutely */
+    left: var(--border-left, 0); /* Dynamic left position */
+    bottom: 0; /* Align it to the bottom */
+    height: 4px; /* Height of the border */
+    background-color: white; /* White border color */
+    transition: left 0.7s ease, width 0.7s ease; /* Smooth transition for left and width */
+    width: var(--border-width, 0); /* Start with 0 width */
+}
+
+
+
+
+.intro {
+    display: flex; /* Use flexbox */
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center align items horizontally */
+    text-align: center; /* Center text */
+    color: white;
+}
+
+.intro h4 {
+    font-size: 30px;
+    font-family: sans-serif;
+    font-weight: 400;
+    margin-top: 100px;
+}
+
+.intro h1 {
+    font-size: 90px;
+    font-family: sans-serif;
+    font-weight: 900;
+    margin-top: 13px;
+    margin-bottom: 0;
+}
+
+.intro p {
+    font-size: 18px;
+    font-family: sans-serif;
+    font-weight: 350;
+    margin-top: 8px;
+    margin-bottom: 0;
+}
+
+.interCircle {
+    width: 90px; /* Set a fixed width */
+    height: 90px; /* Set a fixed height */
+    border: 2px solid white; /* Solid white border */
+    margin-bottom: 4.5px; /* Margin around the circle */
+    margin-left: 5px;
+    padding: 30px;
+    border-radius: 50%; /* Makes the initial shape circular */
+    color: white; /* Text color */
+    display: flex; /* Enables flexbox to center text */
+    justify-content: center; /* Centers text horizontally */
+    align-items: center; /* Centers text vertically */
+    text-align: center; /* Aligns text in the center */
+    animation: shapeChange 3s infinite; /* Run the shapeChange animation */
+}
+
+@keyframes shapeChange {
+    0%, 100% {
+        width: 90px; /* Circle width */
+        height: 90px; /* Circle height */
+        border-radius: 50%; /* Fully circular */
+        padding: 30px;
+        margin-bottom: 4.5px;
+    }
+    25% {
+        width: 90px; /* Wider for oval */
+        height: 74px; /* Same height for oval */
+        border-radius: 50%; /* Oval shape */
+        padding: 30px;
+        margin-bottom: 4.5px;
+    }
+    50% {
+        width: 100px; /* Back to circle */
+        height: 90px; /* Taller for oval */
+        border-radius: 50%; /* Oval shape */
+        padding: 30px;
+        margin-bottom: 4.5px;
+    }
+    75% {
+        width: 103px; /* Wider for oval */
+        height: 90px; /* Same height for oval */
+        border-radius: 50%; /* Oval shape */
+        padding: 30px;
+        margin-bottom: 4.5px;
+    }
+}
+
+.innerCir {
+    width: 90px; /* Set a fixed width */
+    height: 90px; /* Set a fixed height */
+    border: 2px solid white; /* Solid white border */
+    margin-bottom: 4.5px; /* Margin around the circle */
+    margin-left: 5px;
+    padding: 30px; /* Padding inside the circle */
+    border-radius: 50%; /* Makes the border circular */
+    color: white; /* Text color */
+    display: flex; /* Enables flexbox to center text */
+    justify-content: center; /* Centers text horizontally */
+    align-items: center; /* Centers text vertically */
+    text-align: center; /* Aligns text in the center */
+    animation: shapeChange01 3s infinite; /* Run the shapeChange animation */
+}
+
+@keyframes shapeChange01 {
+    0%,50% {
+        width: 90px; /* Back to circle */
+        height: 90px; /* Taller for oval */
+        border-radius: 50%; /* Oval shape */
+        padding: 30px;
+        margin-bottom: 4.5px;
+    }
+     
+    75% {
+        width: 90px; /* Wider for oval */
+        height: 74px; /* Same height for oval */
+        border-radius: 50%; /* Oval shape */
+        padding: 30px;
+        margin-bottom: 4.5px;
+    }
+    100% {
+        width: 100px; /* Circle width */
+        height: 90px; /* Circle height */
+        border-radius: 50%; /* Fully circular */
+        padding: 30px;
+        margin-bottom: 4.5px;
+    }
+    
+    25% {
+        width: 103px; /* Wider for oval */
+        height: 90px; /* Same height for oval */
+        border-radius: 50%; /* Oval shape */
+        padding: 30px;
+        margin-bottom: 4.5px;
+    }
+
+
+
+}
+
+
+.ekvith {
+    position: fixed;
+    top: 0;
+    left: -100%; /* Initially hidden off the screen to the left */
+    width: 100%; /* Set the width of the sliding section */
+    height: 100%; /* Full viewport height */
+    padding: 0;
+    margin: 0;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    transition: left 1.95s ease; /* Smooth transition for sliding in and out */
+    z-index: 1000; /* Ensure the menu appears on top */
+}
+
+/* Ensure basic styling for the menu section */
+
+.ekvith.visible {
+    left: 0; /* Move the section into view */
+}
+
+.ekvith.hidden {
+    left: -100%; /* Move the section out of view */
+}
+
+
+
+
+.container {
+    display: grid;
+    grid-template-columns: 65% 35%; /* 65% for the hero, 35% for the contact section */
+    height: 100vh; /* Full height of the viewport */
+    transition: grid-template-columns 0.5s ease; /* Smooth transition if column sizes change */
+}
+
+/* Hero section with a background image */
+.container .menu  {
+    background-image: url('red-room.jpg'); /* Background image for the hero section */
+    background-size: cover; /* Ensures the image covers the entire hero area */
+    background-position: center; /* Centers the background image */
+    padding: 50px; /* Padding around the content */
+    position: relative; /* Relative positioning to allow absolute child elements */
+}
+
+/* Adding an overlay on top of the hero image */
+.container menu::before {
+    content: ""; /* Empty content to create the overlay */
+    position: absolute; /* Fills the entire hero area */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 0, 0, 0.2); /* Semi-transparent red overlay */
+    z-index: 1; /* Makes sure the overlay is behind the content */
+    opacity: 0.8; /* Reduces the opacity of the overlay */
+}
+
+/* Ensures menu and room info appear above the overlay */
+.menu, .room-info {
+    position: relative; /* Positioned above the overlay */
+    z-index: 2; /* Ensures the content is above the overlay */
+}
+
+/* Styling for the navigation menu */
+.menu {
+    position: relative; /* Relative positioning for the menu */
+}
+
+/* Styling the unordered list inside the menu */
+.menu ul {
+    list-style: none; /* Removes default bullet points */
+    font-size: 24px; /* Larger font for the menu items */
+    line-height: 1.8; /* Adds vertical space between items */
+    text-transform: uppercase; /* Makes all text uppercase */
+    padding-left: 50px; /* Adds padding to the left */
+    padding-top: 30px; /* Moves the list down from the top */
+}
+
+/* List items inside the menu */
+.menu ul li {
+    list-style-type: upper-roman; /* Roman numeral list style */
+    margin-bottom: 10px; /* Adds spacing between each item */
+}
+
+/* Styling for the links inside the menu */
+.menu ul li a {
+    color: #fff; /* White text color */
+    text-decoration: none; /* Removes underline */
+    font-weight: bold; /* Bold text */
+    font-size: 32px; /* Larger font size */
+    padding-left: 20px; /* Moves the links slightly to the right */
+    margin-top: 20px; /* Adds vertical space above the links */
+    display: block; /* Makes the link block-level for easier styling */
+    font-family: 'Georgia', serif; /* Uses a serif font */
+    transition: transform 0.3s ease; /* Smooth transition for scaling effect */
+    cursor: pointer; /* Changes the cursor to indicate it's clickable */
+}
+
+/* Hover effect for the links inside the menu */
+.menu ul li a:hover {
+    transform: scale(1.07); /* Enlarges the link slightly on hover */
+    color: #c2c2c2; /* Changes the text color to light gray */
+}
+
+/* Image inside the menu (e.g., logo or icon) */
+.menu img {
+    position: absolute; /* Positions the image relative to the menu */
+    top: 1px; /* Moves it slightly down from the top */
+    left: 20px; /* Moves it slightly to the right */
+    width: 40px; /* Sets the size of the image */
+    transition: transform 0.3s ease; /* Smooth transition for hover effect */
+    cursor: pointer; /* Changes the cursor to a pointer */
+}
+
+/* Hover effect for the image in the menu */
+.menu img:hover {
+    transform: scale(1.4); /* Enlarges the image slightly on hover */
+}
+
+/* Room info section positioned within the hero */
+.room-info {
+    position: absolute; /* Positioned relative to the hero section */
+    top: 80px; /* Moves it down from the top */
+    right: 70px; /* Moves it left from the right edge */
+    background-color: transparent; /* No background color */
+    padding: 15px; /* Padding around the content */
+    border-radius: 8px; /* Rounds the corners */
+    color: #fffafa; /* Light color for the text */
+}
+
+/* Styling for the room info heading */
+.room-info h3 {
+    font-size: 18px; /* Smaller font size */
+    margin-bottom: -40px; /* Moves content upwards */
+    color: #494949; /* Dark gray text color */
+    display: flex; /* Flexbox for easier alignment */
+    align-items: center; /* Vertically centers items */
+    font-family: 'Georgia', serif; /* Serif font */
+}
+
+/* Styling for the image inside room info */
+.room-info img {
+    margin-left: 180px; /* Moves the image to the right */
+    cursor: pointer; /* Indicates the image is clickable */
+    width: 50px; /* Sets the size of the image */
+    transition: transform 0.3s ease; /* Smooth transition for scaling */
+}
+
+/* Hover effect for the room info image */
+.room-info img:hover {
+    transform: scale(1.4); /* Enlarges the image slightly on hover */
+}
+
+/* List items inside room info */
+.room-info ul li {
+    list-style: none; /* Removes bullet points */
+    line-height: 1.8; /* Adds vertical spacing */
+    color: #413636; /* Dark text color */
+    font-family: 'Georgia', serif; /* Serif font */
+    transition: transform 0.3s ease; /* Smooth transition for scaling */
+    cursor: pointer; /* Indicates the item is clickable */
+}
+
+/* Hover effect for room info list items */
+.room-info ul li:hover {
+    transform: scale(1.07); /* Enlarges the item slightly on hover */
+    color: #ffffff; /* Changes the text color to white on hover */
+}
+
+/* Contact section styling */
+.contact {
+    background-color: rgba(160, 59, 59, 0.8); /* Semi-transparent red background */
+    padding: 50px; /* Adds padding inside the contact section */
+    display: flex; /* Flexbox layout */
+    flex-direction: column; /* Column layout */
+    justify-content: center; /* Centers the content vertically */
+    align-items: center; /* Centers the content horizontally */
+    text-align: center; /* Centers the text */
+    color: #e2e2e2; /* Light gray text color */
+}
+
+/* Logo inside the contact section */
+.contact .logo {
+    width: 220px; /* Adjusts the size of the logo */
+    margin-bottom: 20px; /* Adds space below the logo */
+}
+
+/* Heading inside the contact section */
+.contact h2 {
+    font-size: 28px; /* Larger font size */
+    margin-bottom: 20px; /* Adds space below the heading */
+}
+
+/* Address block inside the contact section */
+.contact address {
+    font-style: normal; /* Removes default italic style */
+    line-height: 1.6; /* Adds vertical spacing */
+}
+
+/* Links inside the contact section */
+.contact a {
+    color: #c2c2c2; /* Light gray link color */
+    text-decoration: none; /* Removes underline */
+    font-weight: bold; /* Bold text */
+}
+
+/* Hover effect for the links inside the contact section */
+.contact a:hover {
+    color: #fff; /* Changes link color to white on hover */
+}
+
+/* Underline hover animation for phone number and email */
+.contact .hover-underline-animation {
+    position: relative; /* Allows positioning of the underline */
+    display: inline-block; /* Inline-block to work with text */
+    cursor: pointer; /* Shows pointer when hovered */
+}
+
+/* Creating the underline animation */
+.contact .hover-underline-animation::after {
+    content: ''; /* Empty content to create the underline */
+    position: absolute; /* Positions the underline */
+    width: 100%; /* Full width */
+    height: 2px; /* Height of the underline */
+    bottom: 0; /* Positions the underline at the bottom */
+    left: 0; /* Starts from the left */
+    background-color: rgb(255, 255, 255); /* White underline color */
+    transform: scaleX(0); /* Initially scales the underline to zero */
+    transform-origin: bottom right; /* Origin starts from the right */
+    transition: transform 0.25s ease-out; /* Smooth animation */
+}
+
+/* Hover effect for the underline */
+.contact .hover-underline-animation:hover::after,
+.contact .hover-underline-animation:active::after {
+    transform: scaleX(1); /* Expands the underline on hover */
+    transform-origin: bottom left; /* Moves from right to left */
+}
+
+
+
+
+
+
+

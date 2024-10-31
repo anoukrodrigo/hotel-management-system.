@@ -1,0 +1,226 @@
+/* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Ensures padding and border are included in width and height */
+}
+
+/* Base styling for body and html */
+body, html {
+    font-family: Arial, sans-serif; /* Sets a clean and simple font */
+    color: #fff; /* White text color */
+    background-color: #2d4031; /* Dark green background color */
+    height: 100vh; /* Full viewport height */
+}
+
+/* Grid container to split the layout into two sections */
+.container {
+    display: grid;
+    grid-template-columns: 65% 35%; /* 65% for the hero, 35% for the contact section */
+    height: 100vh; /* Full height of the viewport */
+    transition: grid-template-columns 0.5s ease; /* Smooth transition if column sizes change */
+}
+
+/* Hero section with a background image */
+.hero {
+    background-image: url('red-room.jpg'); /* Background image for the hero section */
+    background-size: cover; /* Ensures the image covers the entire hero area */
+    background-position: center; /* Centers the background image */
+    padding: 50px; /* Padding around the content */
+    position: relative; /* Relative positioning to allow absolute child elements */
+}
+
+/* Adding an overlay on top of the hero image */
+.hero::before {
+    content: ""; /* Empty content to create the overlay */
+    position: absolute; /* Fills the entire hero area */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 0, 0, 0.2); /* Semi-transparent red overlay */
+    z-index: 1; /* Makes sure the overlay is behind the content */
+    opacity: 0.8; /* Reduces the opacity of the overlay */
+}
+
+/* Ensures menu and room info appear above the overlay */
+.menu, .room-info {
+    position: relative; /* Positioned above the overlay */
+    z-index: 2; /* Ensures the content is above the overlay */
+}
+
+/* Styling for the navigation menu */
+.menu {
+    position: relative; /* Relative positioning for the menu */
+}
+
+/* Styling the unordered list inside the menu */
+.menu ul {
+    list-style: none; /* Removes default bullet points */
+    font-size: 24px; /* Larger font for the menu items */
+    line-height: 1.8; /* Adds vertical space between items */
+    text-transform: uppercase; /* Makes all text uppercase */
+    padding-left: 50px; /* Adds padding to the left */
+    padding-top: 30px; /* Moves the list down from the top */
+}
+
+/* List items inside the menu */
+.menu ul li {
+    list-style-type: upper-roman; /* Roman numeral list style */
+    margin-bottom: 10px; /* Adds spacing between each item */
+}
+
+/* Styling for the links inside the menu */
+.menu ul li a {
+    color: #fff; /* White text color */
+    text-decoration: none; /* Removes underline */
+    font-weight: bold; /* Bold text */
+    font-size: 32px; /* Larger font size */
+    padding-left: 20px; /* Moves the links slightly to the right */
+    margin-top: 20px; /* Adds vertical space above the links */
+    display: block; /* Makes the link block-level for easier styling */
+    font-family: 'Georgia', serif; /* Uses a serif font */
+    transition: transform 0.3s ease; /* Smooth transition for scaling effect */
+    cursor: pointer; /* Changes the cursor to indicate it's clickable */
+}
+
+/* Hover effect for the links inside the menu */
+.menu ul li a:hover {
+    transform: scale(1.07); /* Enlarges the link slightly on hover */
+    color: #c2c2c2; /* Changes the text color to light gray */
+}
+
+/* Image inside the menu (e.g., logo or icon) */
+.menu img {
+    position: absolute; /* Positions the image relative to the menu */
+    top: 1px; /* Moves it slightly down from the top */
+    left: 20px; /* Moves it slightly to the right */
+    width: 40px; /* Sets the size of the image */
+    transition: transform 0.3s ease; /* Smooth transition for hover effect */
+    cursor: pointer; /* Changes the cursor to a pointer */
+}
+
+/* Hover effect for the image in the menu */
+.menu img:hover {
+    transform: scale(1.4); /* Enlarges the image slightly on hover */
+}
+
+/* Room info section positioned within the hero */
+.room-info {
+    position: absolute; /* Positioned relative to the hero section */
+    top: 80px; /* Moves it down from the top */
+    right: 70px; /* Moves it left from the right edge */
+    background-color: transparent; /* No background color */
+    padding: 15px; /* Padding around the content */
+    border-radius: 8px; /* Rounds the corners */
+    color: #fffafa; /* Light color for the text */
+}
+
+/* Styling for the room info heading */
+.room-info h3 {
+    font-size: 18px; /* Smaller font size */
+    margin-bottom: -40px; /* Moves content upwards */
+    color: #494949; /* Dark gray text color */
+    display: flex; /* Flexbox for easier alignment */
+    align-items: center; /* Vertically centers items */
+    font-family: 'Georgia', serif; /* Serif font */
+}
+
+/* Styling for the image inside room info */
+.room-info img {
+    margin-left: 180px; /* Moves the image to the right */
+    cursor: pointer; /* Indicates the image is clickable */
+    width: 50px; /* Sets the size of the image */
+    transition: transform 0.3s ease; /* Smooth transition for scaling */
+}
+
+/* Hover effect for the room info image */
+.room-info img:hover {
+    transform: scale(1.4); /* Enlarges the image slightly on hover */
+}
+
+/* List items inside room info */
+.room-info ul li {
+    list-style: none; /* Removes bullet points */
+    line-height: 1.8; /* Adds vertical spacing */
+    color: #413636; /* Dark text color */
+    font-family: 'Georgia', serif; /* Serif font */
+    transition: transform 0.3s ease; /* Smooth transition for scaling */
+    cursor: pointer; /* Indicates the item is clickable */
+}
+
+/* Hover effect for room info list items */
+.room-info ul li:hover {
+    transform: scale(1.07); /* Enlarges the item slightly on hover */
+    color: #ffffff; /* Changes the text color to white on hover */
+}
+
+/* Contact section styling */
+.contact {
+    background-color: rgba(160, 59, 59, 0.8); /* Semi-transparent red background */
+    padding: 50px; /* Adds padding inside the contact section */
+    display: flex; /* Flexbox layout */
+    flex-direction: column; /* Column layout */
+    justify-content: center; /* Centers the content vertically */
+    align-items: center; /* Centers the content horizontally */
+    text-align: center; /* Centers the text */
+    color: #e2e2e2; /* Light gray text color */
+}
+
+/* Logo inside the contact section */
+.contact .logo {
+    width: 220px; /* Adjusts the size of the logo */
+    margin-bottom: 20px; /* Adds space below the logo */
+}
+
+/* Heading inside the contact section */
+.contact h2 {
+    font-size: 28px; /* Larger font size */
+    margin-bottom: 20px; /* Adds space below the heading */
+}
+
+/* Address block inside the contact section */
+.contact address {
+    font-style: normal; /* Removes default italic style */
+    line-height: 1.6; /* Adds vertical spacing */
+}
+
+/* Links inside the contact section */
+.contact a {
+    color: #c2c2c2; /* Light gray link color */
+    text-decoration: none; /* Removes underline */
+    font-weight: bold; /* Bold text */
+}
+
+/* Hover effect for the links inside the contact section */
+.contact a:hover {
+    color: #fff; /* Changes link color to white on hover */
+}
+
+/* Underline hover animation for phone number and email */
+.contact .hover-underline-animation {
+    position: relative; /* Allows positioning of the underline */
+    display: inline-block; /* Inline-block to work with text */
+    cursor: pointer; /* Shows pointer when hovered */
+}
+
+/* Creating the underline animation */
+.contact .hover-underline-animation::after {
+    content: ''; /* Empty content to create the underline */
+    position: absolute; /* Positions the underline */
+    width: 100%; /* Full width */
+    height: 2px; /* Height of the underline */
+    bottom: 0; /* Positions the underline at the bottom */
+    left: 0; /* Starts from the left */
+    background-color: rgb(255, 255, 255); /* White underline color */
+    transform: scaleX(0); /* Initially scales the underline to zero */
+    transform-origin: bottom right; /* Origin starts from the right */
+    transition: transform 0.25s ease-out; /* Smooth animation */
+}
+
+/* Hover effect for the underline */
+.contact .hover-underline-animation:hover::after,
+.contact .hover-underline-animation:active::after {
+    transform: scaleX(1); /* Expands the underline on hover */
+    transform-origin: bottom left; /* Moves from right to left */
+}
